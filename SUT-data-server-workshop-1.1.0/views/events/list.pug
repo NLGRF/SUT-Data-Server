@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  .event-list
+    .columns
+      .column.is-12.has-text-centered
+        h2 Event List
+          a(href='/events/new', class='button is-link button-new') Create new
+    form(class='form-search' method='GET' action='/')  
+      .field
+        .label Search
+        .control
+          input(class='input', type='text', placeholder='search' id='search')
+        br
+    each event in events
+      .columns
+        .card.column.is-12
+          span Event Name #{event.name}
+          a(class='button', href=`/events/${event._id}`) Detail
